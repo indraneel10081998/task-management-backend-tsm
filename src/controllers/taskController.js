@@ -63,6 +63,7 @@ exports.getTasks = async (req, res) => {
         where: whereConditions,
         limit: parseInt(limit),
         offset: parseInt(offset),
+        order: [['createTime', 'DESC']],
       });
 
       if (tasks.count === 0) {
