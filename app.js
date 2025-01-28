@@ -11,10 +11,12 @@ const app = express();
 
 const PORT = process.env.PORT || 8080;
 
-app.use(cors({
-  origin: "https://task-management-frontend-tsm.onrender.com",
-}));
+const corsOptions = {
+  origin: 'https://task-management-frontend-tsm.onrender.com',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+};
 
+app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use("/auth", authRoutes);
